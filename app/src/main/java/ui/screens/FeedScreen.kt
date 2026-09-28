@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.sp
 import data.DataSource
 import ui.components.PostCard
 import ui.components.StoriesRow
+import androidx.compose.ui.tooling.preview.Preview
 
 
 @Composable
@@ -84,6 +85,12 @@ fun InstagramTopBar() {
         },
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.White
+
         )
     )
+}
+@Preview(showBackground = true)
+@Composable
+fun FeedScreenPreview() {
+    FeedScreen()
 }
