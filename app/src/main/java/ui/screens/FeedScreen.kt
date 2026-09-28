@@ -1,5 +1,6 @@
 package ui.screens
 
+import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -23,12 +24,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import data.DataSource
 import ui.components.PostCard
 import ui.components.StoriesRow
-import androidx.compose.ui.tooling.preview.Preview
-
 
 @Composable
 fun FeedScreen() {
@@ -55,7 +56,16 @@ fun FeedScreen() {
             ) { post ->
                 PostCard(
                     post = post,
-                    onLikeClick = { likedPost -> }
+                    onLikeClick = { likedPost ->
+                        Log.d("Feed", "Like en: ${likedPost.username}")
+                    }
+                )
+            }
+
+            item(key = "fin") {
+                Text(
+                    text = "Has llegado al final 🎉",
+                    modifier = Modifier.padding(16.dp)
                 )
             }
         }
@@ -85,10 +95,10 @@ fun InstagramTopBar() {
         },
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.White
-
         )
     )
 }
+
 @Preview(showBackground = true)
 @Composable
 fun FeedScreenPreview() {

@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import model.Story
+import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun StoriesRow(stories: List<Story>) {
@@ -67,8 +68,16 @@ fun StoryItem(story: Story) {
         Text(
             text = story.username,
             fontSize = 11.sp,
-            maxLines = 1,
+            maxLines = Int.MAX_VALUE,
             overflow = TextOverflow.Ellipsis
         )
     }
+
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun StoryItemPreview() {
+    StoryItem(Story(1, "Mi historia muy larga de prueba", "", false))
 }

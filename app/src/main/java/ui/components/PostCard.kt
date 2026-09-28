@@ -32,6 +32,7 @@ import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import coil3.request.crossfade
 import model.Post
+import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun PostCard(
@@ -137,7 +138,9 @@ private fun PostActions(
 
 @Composable
 private fun PostFooter(post: Post) {
-    Column(modifier = Modifier.padding(horizontal = 16.dp).padding(bottom = 10.dp)) {
+    Column(modifier = Modifier
+        .padding(horizontal = 16.dp)
+        .padding(bottom = 10.dp)) {
         Text(
             text = "${post.likes} Me gusta",
             fontWeight = FontWeight.Bold,
@@ -156,4 +159,10 @@ private fun PostFooter(post: Post) {
             overflow = TextOverflow.Ellipsis
         )
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PostCardPreview() {
+    PostCard(post = Post(1, "yo", "", "", 10, "hola"))
 }
